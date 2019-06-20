@@ -1,0 +1,312 @@
+    // Edge interface //
+    //package util;
+    //
+    //public interface Edge<E> {
+    // --Commented out by Inspection START (6/13/2019 3:31 PM):
+    //    /**
+    //     * Returns the element associated with the edge.
+    //     */
+    //    E getElement();
+    // --Commented out by Inspection STOP (6/13/2019 3:31 PM)
+    //}
+
+
+    // Vertex interface //
+    package util;
+
+    public interface Vertex<V> {
+        /**
+         * Returns the element associated with the vertex.
+         */
+        V getElement();
+    }
+
+    // Old version of in SaveFileAction //
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Object Files", "ser");
+            chooser.setFileFilter(filter);
+            chooser.setBounds(75, 75, 500, 300);
+            int returnValue = chooser.showSaveDialog(chooser);
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                FileOutputStream saveFile = new FileOutputStream(chooser.getSelectedFile() + ".ser");
+                ObjectOutputStream objectSave = new ObjectOutputStream(saveFile);
+                GraphModel model = editor.getGraphModel();
+                objectSave.writeObject(model);
+                objectSave.close();
+                saveFile.close();
+                saveFile.flush();
+
+//                saveFile.write(draw.getEditorDraw().getVertices().size());
+//                saveFile.write(draw.getEditorDraw().getEdges().size());
+//                //For every vertex, save the element, save the
+//                for(int i=0; i<draw.getEditorDraw().getVertices().size();i++){
+//                    GraphVertex currentVertex = (GraphVertex)draw.getEditorDraw().getVertices().get(i);
+//                    saveFile.write(currentVertex.getIndex());
+//                    saveFile.write(currentVertex.getElement().toString());
+//
+//                }
+            }
+        } catch (IOException IO) {
+            System.err.println("User Friendly message: Object was not found.");
+            IO.printStackTrace(System.err);
+        }
+    }
+
+    // Old version of GraphModel //
+    //    /*Debugging*/
+    //    public void printEdges() {
+    //        if (edges.size() == 0) {
+    //            System.out.println("is empty man");
+    //        }
+    //        for (int i = 0; i < edges.size(); i++) {
+    //            GraphVertex e = edges.get(i).getEndpoints().get(0);
+    //            GraphVertex f = edges.get(i).getEndpoints().get(1);
+    //            System.out.println("Vertex 1:" + e.getTitle()+ "\n Connected:" + "Vertex 2:" + f.getTitle());
+    //        }
+    //    }
+    //
+    //    public void printVertices() {
+    //        for (GraphVertex i : vertices) {
+    //            if (i == null) {
+    //                System.out.println("ERROR");
+    //            }else{
+    //                System.out.println("Vertex:" + i.getIndex() + i.getTitle());
+    //            }
+    //        }
+    //
+    //    }
+
+
+    //    public GraphEdge getEdge(GraphVertex u, GraphVertex v) {
+    //        for (GraphEdge edge : edges) {
+    //            ArrayList endpoints = edge.getEndpoints();
+    //            if (endpoints.get(0).equals(u)) {
+    //                if (endpoints.get(1).equals(v)) {
+    //                    return edge;
+    //                }
+    //            }
+    //            if (endpoints.get(0).equals(v)) {
+    //                if (endpoints.get(1).equals(u)) {
+    //                    return edge;
+    //                }
+    //            }
+    //        }
+    //        //System.out.println("Edge does not exist");
+    //        return null;
+    //    }
+
+
+
+    //    /**
+    //     * Finds the vertex opposite to a vertex and an edge.
+    //     *
+    //     * @param v vertex
+    //     * @param e edge
+    //     * @return opposite endpoints of a vertex
+    //     */
+    //    public GraphVertex getOpposite(GraphVertex v, GraphEdge e) {
+    //        ArrayList endpoints = e.getEndpoints();
+    //        GraphVertex opposite = null;
+    //        if (endpoints.contains(v)) {
+    //            for (Object vertex : endpoints) {
+    //                if (vertex != v) {
+    //                    opposite = (GraphVertex) vertex;
+    //                }
+    //            }
+    //        }
+    //        return opposite;
+    //    }
+
+
+    //    public ArrayList getEndVertices(GraphEdge e) {
+    //        return e.getEndpoints();
+    //    }
+
+    //    /**
+    //     * Inserts a vertex into the graph
+    //     *
+    //     * @param v vertex
+    //     */
+    //    public void insertVertex(GraphVertex<V> v) {
+    //        vertices.add(v);
+    //        v.setIndex(vertices.size());
+    //        //this.editor.getController().setVertices(this.getVertices());
+    //    }
+
+            /*
+             * Creates a vertex and inserts it into the graph.
+             *
+             * @param ele
+             * @return: This graph object to be used in other parts of the program.
+             * <p>
+             * Another approach is to make vertices and edges public to not have to send around so much data,
+             * but currently those variables are protected and the areas that need the data are out of the package.
+             * <p>
+             * For future use it might return something?
+            //     */
+    //    public void insertVertex(V ele) {
+    //        GraphVertex<V> v = new GraphVertex<>(ele);
+    //        vertices.add(v);
+    //        v.setIndex(vertices.size());
+    //        //this.editor.getController().setVertices(this.getVertices());
+    //        //return v;
+    //    }
+
+            /*
+             * Creates an edge between two vertices.
+             *
+             * @param //origin of edge
+             * @param //dest of edge
+             * @return
+             */
+    //    public void insertEdge(GraphVertex origin, GraphVertex dest) {
+    //        if (getEdge(origin, dest) == null) {
+    //            GraphEdge e = new GraphEdge<>(origin, dest, 0);
+    //            e.setIndex(edges.size());
+    //            edges.add((GraphEdge<E>) e);
+    //            origin.addToTable(e, dest);
+    //            dest.addToTable(e, origin);
+    //
+    //        }
+    //    }
+        // Button Actions //
+
+
+    //
+    //    public void addEdge(GraphVertex<V> ele, GraphVertex<V> nextEle) {
+    //       if (vertices.size() >= 2) {
+    //            insertEdge(ele, nextEle);
+    //        } else {
+    //            System.out.println("TOO FEW");
+    //        }
+    //        this.update(this, editor);
+    //    }
+
+    //    public void newNode(V ele) {
+    //        GraphVertex<V> vertex = new GraphVertex<>(ele);
+    //        this.insertVertex(vertex);
+    //        this.update(this, editor);
+    //    }
+
+        // for debugging //
+
+        /*
+         * Places an edge between two vertices. The edge must already be created.
+         * This method is only used for testing, insertEdge(origin, dest) used.
+         *
+         * @param origin vertex
+         * @param dest vertex
+         * @param link edge
+         * @return
+    //     */
+
+    //    public void insertEdge(GraphVertex<V> origin, GraphVertex<V> dest, GraphEdge<E> link) {
+    //        if (getEdge(origin, dest) == null) {
+    //            link.setIndex(edges.size());
+    //            edges.add(link);
+    //            origin.addToTable(link, dest);
+    //            dest.addToTable(link, origin);
+    //        }
+    //    }
+
+    // Dead Code //
+
+    // --Commented out by Inspection START (6/13/2019 3:31 PM):
+    //    public GraphEdge(GraphVertex left, GraphVertex right) {
+    //        endpoints = new ArrayList<>();
+    //        endpoints.add(left);
+    //        endpoints.add(right);
+    //    }
+    // --Commented out by Inspection STOP (6/13/2019 3:31 PM)
+
+    // --Commented out by Inspection START (6/13/2019 3:31 PM):
+    //    /**
+    //     * @return Returns the index of this edge within the graph's vertex list.
+    //     */
+    //    public int getIndex() {
+    //        return index;
+    //    }
+    // --Commented out by Inspection START (6/13/2019 3:31 PM):
+    //// --Commented out by Inspection STOP (6/13/2019 3:31 PM)
+    //
+    //
+    //
+    //    /**
+    //     * Stores the index of this edge within the graph's vertex list.
+    // --Commented out by Inspection STOP (6/13/2019 3:31 PM)
+    //     * @param p: The index in the graph represented by an integer.
+    //     */
+
+        /*Setters*/
+
+    //    public void setIndex(int p) {
+    //        index = p;
+    //   }
+
+    //    public void setElement(E element) {
+    //        this.element = element;
+    //    }
+
+    // --Commented out by Inspection START (6/13/2019 3:31 PM):
+    //    /**
+    //     *
+    //     *
+    //     * @param left left vertex
+    //     * @param right right vertex
+    //     * @return connection points of the vertices
+    //     */
+    //    }
+    // --Commented out by Inspection STOP (6/13/2019 3:31 PM)
+
+    // --Commented out by Inspection START (6/13/2019 3:31 PM):
+    //    public GraphEditor(GraphModel model){
+    //        graphModel = model;
+    //        extraFrames = new ArrayList<>();
+    //        controller = new SelectionController(graphModel);
+    //    }
+    // --Commented out by Inspection STOP (6/13/2019 3:31 PM)
+
+    //    /**
+    //     * Constructor, creating a new Vertex storing a given element.
+    //     *
+    //     * @param ele: The element you want stored in this graphs node.
+    //     */
+    //    public GraphVertex( ele) {
+    //        name = ele;
+    //        //name = "Default Node";
+    //        title = ele.toString();
+    //        connections = new LinkedHashMap<>();
+    //        selected = false;
+    //        previouslySelected = false;
+    //        generateRectangle();
+    //    }
+
+    // --Commented out by Inspection START (6/13/2019 3:31 PM):
+    //    public GraphVertex() {
+    //        //name = "Default Node";
+    //        connections = new LinkedHashMap<>();
+    //        title = "Node";
+    //        selected = false;
+    //        previouslySelected = false;
+    //        generateRectangle();
+    //    }
+    // --Commented out by Inspection STOP (6/13/2019 3:31 PM)
+
+    // --Commented out by Inspection START (6/13/2019 3:31 PM):
+    //    public void setModel(GraphModel model) {
+    //        this.model = model;
+    //    }
+    // --Commented out by Inspection STOP (6/13/2019 3:31 PM)
+
+        /*Getters*/
+
+    // --Commented out by Inspection START (6/13/2019 3:31 PM):
+    //    public GraphModel getModel() {
+    //        return this.model;
+    //    }
+    // --Commented out by Inspection STOP (6/13/2019 3:31 PM)
+
+
