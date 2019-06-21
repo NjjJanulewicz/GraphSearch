@@ -20,7 +20,7 @@ public class addEdgeOperation extends AbstractUndoableEdit {
         this.model = old;
         this.origin = origin;
         this.dest = dest;
-        this.dest.setParent(origin, dest);
+        this.dest.setHierarchy(origin, dest);
         if (model.getVertices().size() >= 2) {
                 insertEdge(origin, dest);
             } else {

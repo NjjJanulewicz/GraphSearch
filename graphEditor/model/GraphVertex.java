@@ -3,6 +3,7 @@ package model;
 import java.awt.*;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.Observable;
 
 /**
@@ -17,9 +18,8 @@ public class GraphVertex extends Observable implements Serializable { //Vertex<V
     private int element;
     private boolean previouslySelected;
     private GraphVertex parent;
-
+    private LinkedList children = new LinkedList<GraphVertex>();
     private final LinkedHashMap<GraphVertex, GraphEdge> connections;    // used to be <GraphEdge, GraphVertex>
-
     private Rectangle rectangle;
 
     // Constructor //
@@ -31,6 +31,8 @@ public class GraphVertex extends Observable implements Serializable { //Vertex<V
     }
 
     /*Getters*/
+    public LinkedList<GraphVertex> getChildren() { return children; }
+
     public GraphVertex getParent() { return parent; }
 
     public int getElement() {
@@ -69,8 +71,9 @@ public class GraphVertex extends Observable implements Serializable { //Vertex<V
     }
 
     /*Setters*/
-    public void setParent(GraphVertex parent, GraphVertex child) {
+    public void setHierarchy(GraphVertex parent, GraphVertex child) {
         child.parent = parent;
+        parent.children.push(child);
     }
 
     /**
