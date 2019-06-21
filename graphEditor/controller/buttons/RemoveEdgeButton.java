@@ -1,19 +1,20 @@
-package graphController;
+package controller.buttons;
 
+import controller.actions.RemoveEdgeAction;
 import model.GraphEditor;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 
-class ChangeTitleButton extends JButton {
+public class RemoveEdgeButton extends JButton {
 
     /*Constructor*/
-    public ChangeTitleButton(GraphEditor draw) {
-        super(new ChangeTitleAction(draw));
+    public RemoveEdgeButton(GraphEditor draw) {
+        super(new RemoveEdgeAction(draw));
         ButtonProperties();
     }
 
-    /*Functionality */
+    /*Functionality*/
     /**
      * Defines the visible properties the button will have.
      */
@@ -21,6 +22,6 @@ class ChangeTitleButton extends JButton {
         setVerticalTextPosition(AbstractButton.CENTER);
         setHorizontalTextPosition(AbstractButton.CENTER);
         setMnemonic(KeyEvent.VK_C);
-        setToolTipText("Create a new node");
+        setToolTipText("Add an edge");
     }
 }

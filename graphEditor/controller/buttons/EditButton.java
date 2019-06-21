@@ -1,24 +1,20 @@
-package graphController;
+package controller.buttons;
 
+import controller.actions.EditAction;
 import model.GraphEditor;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 
-/**
- * Button that creates a new edge. It uses the Action API to perform its action
- * which means that this is merely a default configuration for this button.
- * Default access modifier used.
- */
-class AddEdgeButton extends JButton {
+public class EditButton extends JButton {
 
     /*Constructor*/
-    AddEdgeButton(GraphEditor draw) {
-        super(new AddEdgeAction(draw));
+    public EditButton(GraphEditor draw) {
+        super(new EditAction(draw));
         ButtonProperties();
     }
 
-    /*Functionality*/
+    /*Functionality */
     /**
      * Defines the visible properties the button will have.
      */
@@ -26,6 +22,6 @@ class AddEdgeButton extends JButton {
         setVerticalTextPosition(AbstractButton.CENTER);
         setHorizontalTextPosition(AbstractButton.CENTER);
         setMnemonic(KeyEvent.VK_C);
-        setToolTipText("Select an edge first");
+        setToolTipText("Edit Node properties");
     }
 }

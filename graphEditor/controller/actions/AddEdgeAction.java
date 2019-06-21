@@ -1,4 +1,4 @@
-package graphController;
+package controller.actions;
 
 import model.GraphEditor;
 
@@ -11,12 +11,12 @@ import java.util.Observer;
  * Represents the action taken when the Add Edge button is pressed.
  * Default access modifier used.
  */
-class AddEdgeAction extends AbstractAction implements Observer {
+public class AddEdgeAction extends AbstractAction implements Observer {
 
     private final GraphEditor editor;
 
     /*Constructor*/
-    AddEdgeAction(GraphEditor draw) {
+    public AddEdgeAction(GraphEditor draw) {
         super("Add Edge");
         this.editor = draw;
         this.editor.getGraphModel().addObserver(this);

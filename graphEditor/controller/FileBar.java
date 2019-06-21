@@ -1,5 +1,8 @@
 package controller;
 
+import controller.actions.GenerateNewFrameAction;
+import controller.actions.OpenFileAction;
+import controller.actions.SaveFileAction;
 import model.GraphEditor;
 
 import javax.swing.*;

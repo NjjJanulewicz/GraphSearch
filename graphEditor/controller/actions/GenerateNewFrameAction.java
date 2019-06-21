@@ -1,4 +1,4 @@
-package controller;
+package controller.actions;
 
 import model.GraphEditor;
 
@@ -7,29 +7,27 @@ import java.awt.event.ActionEvent;
 import java.util.Observable;
 import java.util.Observer;
 
-/**
- * Represents the action taken when the Undo button is pressed.
- * Default access modifier used.
- */
-class UndoAction extends AbstractAction implements Observer {
+public class GenerateNewFrameAction extends AbstractAction implements Observer {
 
     private final GraphEditor editor;
 
     /*Constructor*/
-    UndoAction(GraphEditor draw) {
-        super("Undo action");
+    public GenerateNewFrameAction(GraphEditor draw) {
+        super("Generate New Frame");
         this.editor = draw;
         this.editor.getGraphModel().addObserver(this);
+        this.setEnabled(true);
     }
 
     /*Functionality*/
     @Override
     public void actionPerformed(ActionEvent e) {
-        editor.getGraphModel().getUndoManager().undo();
-        editor.getGraphModel().update(editor.getGraphModel(),editor);
+        editor.newFrame();
     }
 
     @Override
     public void update(Observable o, Object arg) {
     }
 }
+
+

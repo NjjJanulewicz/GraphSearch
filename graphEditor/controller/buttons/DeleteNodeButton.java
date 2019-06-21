@@ -1,5 +1,6 @@
-package graphController;
+package controller.buttons;
 
+import controller.actions.DeleteNodeAction;
 import model.GraphEditor;
 
 import javax.swing.*;
@@ -10,10 +11,10 @@ import java.awt.event.KeyEvent;
  * which means that this is merely a default configuration for this button.
  * Default access modifier used.
  */
-class DeleteNodeButton extends JButton {
+public class DeleteNodeButton extends JButton {
 
     /*Constructor*/
-    DeleteNodeButton(GraphEditor draw) {
+    public DeleteNodeButton(GraphEditor draw) {
         super(new DeleteNodeAction(draw));
         ButtonProperties();
     }

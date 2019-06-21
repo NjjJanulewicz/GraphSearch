@@ -1,4 +1,4 @@
-package graphController;
+package controller.actions;
 
 import model.GraphEditor;
 import operation.newNodeOperation;
@@ -13,7 +13,7 @@ import java.util.Observer;
  * The action taken is to create a new node in the graph, should be represented in the GUI.
  * Default access modifier used.
  */
-class NewNodeAction extends AbstractAction implements Observer {
+public class NewNodeAction extends AbstractAction implements Observer {
 
     private final GraphEditor editor;
 

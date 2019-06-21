@@ -1,4 +1,4 @@
-package controller;
+package controller.actions;
 
 import model.GraphEditor;
 import model.GraphModel;

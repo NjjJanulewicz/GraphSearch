@@ -1,5 +1,6 @@
 package controller;
 
+import controller.actions.BreadthFirstAction;
 import model.GraphEditor;
 
 import javax.swing.*;

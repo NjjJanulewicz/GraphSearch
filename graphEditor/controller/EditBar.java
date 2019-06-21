@@ -1,5 +1,7 @@
 package controller;
 
+import controller.actions.RedoAction;
+import controller.actions.UndoAction;
 import model.GraphEditor;
 
 import javax.swing.*;

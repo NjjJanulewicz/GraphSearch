@@ -1,4 +1,4 @@
-package graphController;
+package controller;
 
 import model.GraphModel;
 import model.GraphVertex;

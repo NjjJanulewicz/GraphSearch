@@ -1,4 +1,4 @@
-package graphController;
+package controller.actions;
 
 import model.GraphEdge;
 import model.GraphEditor;
@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-class RemoveEdgeAction extends AbstractAction implements Observer {
+public class RemoveEdgeAction extends AbstractAction implements Observer {
 
     private final GraphEditor editor;
 
     /*Constructor*/
-    RemoveEdgeAction(GraphEditor draw) {
+    public RemoveEdgeAction(GraphEditor draw) {
         super("Remove Edge");
         this.editor = draw;
         this.editor.getGraphModel().addObserver(this);

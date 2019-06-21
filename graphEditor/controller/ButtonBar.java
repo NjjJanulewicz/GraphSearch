@@ -1,5 +1,6 @@
-package graphController;
+package controller;
 
+import controller.buttons.*;
 import model.GraphEditor;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ public class ButtonBar extends JMenuBar {
         add(new AddEdgeButton(draw));
         add(new DeleteNodeButton(draw));
         add(new NewNodeButton(draw));
-        add(new ChangeTitleButton(draw));
+        add(new EditButton(draw));
         add(new RemoveEdgeButton(draw));
     }
 }

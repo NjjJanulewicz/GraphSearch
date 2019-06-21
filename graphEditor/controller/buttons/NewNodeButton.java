@@ -1,5 +1,6 @@
-package graphController;
+package controller.buttons;
 
+import controller.actions.NewNodeAction;
 import model.GraphEditor;
 
 import javax.swing.*;
@@ -10,10 +11,10 @@ import java.awt.event.KeyEvent;
  * which means that this is merely a default configuration for this button.
  * Default access modifier used.
  */
-class NewNodeButton extends JButton {
+public class NewNodeButton extends JButton {
 
     /*Constructor*/
-    NewNodeButton(GraphEditor draw) {
+    public NewNodeButton(GraphEditor draw) {
         super(new NewNodeAction(draw));
         ButtonProperties();
 

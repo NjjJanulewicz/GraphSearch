@@ -55,6 +55,10 @@ public class GraphModel extends Observable implements Serializable, Observer {
         vertices.remove(v);
     }
 
+    /**
+     * TODO: using keys of graph edges where it needs to be a vertex.
+     * @param e
+     */
     public void removeEdge(GraphEdge e) {
         ArrayList<GraphVertex> f = e.getEndpoints();
         f.get(0).getConnections().remove(e);

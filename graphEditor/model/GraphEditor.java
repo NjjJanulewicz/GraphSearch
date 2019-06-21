@@ -1,6 +1,6 @@
 package model;
 
-import graphController.SelectionController;
+import controller.SelectionController;
 import view.GraphFrame;
 
 import java.util.ArrayList;

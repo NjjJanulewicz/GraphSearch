@@ -1,4 +1,4 @@
-package graphController;
+package controller.actions;
 
 import model.GraphEditor;
 import operation.changeTitleOperation;
@@ -8,13 +8,13 @@ import java.awt.event.ActionEvent;
 import java.util.Observable;
 import java.util.Observer;
 
-class ChangeTitleAction extends AbstractAction implements Observer {
+public class EditAction extends AbstractAction implements Observer {
 
     private final GraphEditor editor;
 
     /*Constructor*/
-    ChangeTitleAction(GraphEditor draw) {
-        super("Change Node Name");
+    public EditAction(GraphEditor draw) {
+        super("Edit Node");
         this.editor = draw;
         this.editor.getGraphModel().addObserver(this);
         this.setEnabled(false);
@@ -28,6 +28,12 @@ class ChangeTitleAction extends AbstractAction implements Observer {
             this.setEnabled(true);
         }
     }
+
+//    int inputValue = Integer.parseInt(JOptionPane.showInputDialog("Please input a value"));
+//        editor.getGraphModel().getUndoManager().addEdit(new newNodeOperation(editor, inputValue));
+//
+//        editor.getController().setSelected(null);
+//        editor.getGraphModel().update(editor.getGraphModel(), null);    // This updates the add edge button when its selected.
 
     @Override
     public void actionPerformed(ActionEvent e) {

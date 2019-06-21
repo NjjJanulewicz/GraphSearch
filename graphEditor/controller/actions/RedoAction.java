@@ -1,4 +1,4 @@
-package controller;
+package controller.actions;
 
 import model.GraphEditor;
 
@@ -11,12 +11,12 @@ import java.util.Observer;
  * Represents the action taken when the Redo button is pressed.
  * Default access modifier used.
  */
-class RedoAction extends AbstractAction implements Observer {
+public class RedoAction extends AbstractAction implements Observer {
 
     private final GraphEditor editor;
 
     /*Constructor*/
-    RedoAction(GraphEditor draw) {
+    public RedoAction(GraphEditor draw) {
         super("Redo action");
         this.editor = draw;
         this.editor.getGraphModel().addObserver(this);

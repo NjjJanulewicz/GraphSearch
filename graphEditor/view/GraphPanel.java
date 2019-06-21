@@ -1,7 +1,7 @@
 package view;
 
-import graphController.ButtonBar;
-import graphController.SelectionController;
+import controller.ButtonBar;
+import controller.SelectionController;
 import model.*;
 
 import javax.swing.*;
