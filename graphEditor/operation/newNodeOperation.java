@@ -13,14 +13,14 @@ public class newNodeOperation extends AbstractUndoableEdit {
     private GraphVertex node;
 
     /*Constructor*/
-    public newNodeOperation(GraphEditor editor, int inputValue) {
+    public newNodeOperation(GraphEditor editor, int nodeValue, int heuristicValue) {
         this.editor = editor;
-        newNode(inputValue);
+        newNode(nodeValue, heuristicValue);
     }
 
     /*Functionality*/
-    private void newNode(int ele) {
-        node = new GraphVertex(ele);
+    private void newNode(int ele, int heuristic) {
+        node = new GraphVertex(ele, heuristic);
         node.setIndex(editor.getGraphModel().getVertices().size());
         editor.getGraphModel().addVertices(node);
     }

@@ -17,7 +17,7 @@ public class GreedyAction extends AbstractAction implements Observer {
     private final GraphEditor editor;
 
     public GreedyAction(GraphEditor draw) {
-        super("Breadth First Search");
+        super("Greedy Search");
         this.editor = draw;
         this.editor.getGraphModel().addObserver(this);
         this.setEnabled(false);
@@ -35,10 +35,11 @@ public class GreedyAction extends AbstractAction implements Observer {
     /**
      * TODO: add exception handling for when a user tries to enter null
      *       It should use a do while, and loop the user through the decision until they get it right.
+     * TODO: Finish implementation
      */
     public void actionPerformed(ActionEvent e) {
         int inputValue = Integer.parseInt(JOptionPane.showInputDialog("Please input a value"));
-        editor.getSearch().breadthFirst(inputValue);
+        editor.getSearch().greedy(inputValue);
 
         editor.getGraphModel().update(editor.getGraphModel(), null);    // This updates the add edge button when its selected.
     }

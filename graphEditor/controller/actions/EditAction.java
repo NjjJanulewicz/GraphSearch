@@ -29,12 +29,6 @@ public class EditAction extends AbstractAction implements Observer {
         }
     }
 
-//    int inputValue = Integer.parseInt(JOptionPane.showInputDialog("Please input a value"));
-//        editor.getGraphModel().getUndoManager().addEdit(new newNodeOperation(editor, inputValue));
-//
-//        editor.getController().setSelected(null);
-//        editor.getGraphModel().update(editor.getGraphModel(), null);    // This updates the add edge button when its selected.
-
     @Override
     public void actionPerformed(ActionEvent e) {
         editor.getGraphModel().getUndoManager().addEdit(new changeTitleOperation(editor));

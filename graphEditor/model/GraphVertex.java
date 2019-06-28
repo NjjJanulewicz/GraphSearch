@@ -16,6 +16,7 @@ public class GraphVertex extends Observable implements Serializable { //Vertex<V
     private static final long serialVersionUID = 42L;
     private int index;
     private int element;
+    private int heuristic;
     private boolean previouslySelected;
     private GraphVertex parent;
     private LinkedList children = new LinkedList<GraphVertex>();
@@ -23,14 +24,17 @@ public class GraphVertex extends Observable implements Serializable { //Vertex<V
     private Rectangle rectangle;
 
     // Constructor //
-    public GraphVertex(int ele) {
+    public GraphVertex(int ele, int heur) {
         element = ele;
+        heuristic = heur;
         connections = new LinkedHashMap<>();
         previouslySelected = false;
         generateRectangle();
     }
 
     /*Getters*/
+    public int getHeuristic() { return this.heuristic; }
+
     public LinkedList<GraphVertex> getChildren() { return children; }
 
     public GraphVertex getParent() { return parent; }
@@ -94,8 +98,6 @@ public class GraphVertex extends Observable implements Serializable { //Vertex<V
     }
 
     /*Functionality*/
-
-
     public void addToTable(GraphEdge Edge, GraphVertex Destination) {
         connections.put(Destination, Edge);
     }
